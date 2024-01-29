@@ -9,6 +9,7 @@ function App() {
   const [languages, setLanguages] = useState([]);
   const [followers, setFollowers] = useState(0);
   const [following, setFollowing] = useState(0);
+  const [randomQuote, setRandomQuote] = useState("");
 
   useEffect(() => {
     const fetchGitHubProfile = async () => {
@@ -36,6 +37,10 @@ function App() {
           response.data.following_url.split("{")[0]
         );
         setFollowing(followingResponse.data.length);
+        const quoteResponse = await axios.get(
+          "https://zenquotes.io/api/random"
+        );
+        setRandomQuote(quoteResponse.data[0].q);
       } catch (error) {
         console.error("Error fetching GitHub profile:", error);
       }
@@ -54,6 +59,7 @@ function App() {
             languages={languages}
             followers={followers}
             following={following}
+            randomQuote={randomQuote}
           />
         </div>
       )}

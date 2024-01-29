@@ -1,6 +1,13 @@
 import React from "react";
 
-function ProfileCard({ userData, repoCount, languages, followers, following }) {
+function ProfileCard({
+  userData,
+  repoCount,
+  languages,
+  followers,
+  following,
+  randomQuote,
+}) {
   return (
     <div className="profile-card">
       <img
@@ -12,6 +19,7 @@ function ProfileCard({ userData, repoCount, languages, followers, following }) {
       <h2 className="bio">{userData.bio}</h2>
       <h2 className="normal-text">Number of Repositories: {repoCount}</h2>
       <h2 className="normal-text">Languages Used: {languages.join(", ")}</h2>
+      <h2 className="normal-text">Random Quote: {randomQuote}</h2>
 
       <div className="social-container">
         <div className="followers">
