@@ -4,6 +4,7 @@ import ProfileCard from "./component/ProfileCard";
 import "./component/ProfileCard.css";
 import Spinner from "./component/Spinner";
 import "./component/Spinner.css";
+import "./App.css";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -26,7 +27,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      setLoading(true); // Set loading to true when fetching data
+      setLoading(true);
       const response = await axios.get(
         `https://api.github.com/users/${username}`
       );
@@ -73,9 +74,12 @@ function App() {
             placeholder="Enter GitHub Username"
             value={username}
             onChange={handleInputChange}
+            className="input-field"
           />
         </div>
-        <button type="submit">Search</button>
+        <button type="submit" className="search-button">
+          Search
+        </button>
       </form>
       {loading ? (
         <Spinner />
