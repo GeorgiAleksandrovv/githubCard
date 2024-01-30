@@ -37,10 +37,10 @@ function App() {
           response.data.following_url.split("{")[0]
         );
         setFollowing(followingResponse.data.length);
-        const quoteResponse = await axios.get(
-          "https://zenquotes.io/api/random"
-        );
-        setRandomQuote(quoteResponse.data[0].q);
+      let arrayOfQuotes = [];
+      const quoteResponse = await axios.get("https://api.quotable.io/random");
+      arrayOfQuotes = quoteResponse.data;
+      setRandomQuote(arrayOfQuotes.content); 
       } catch (error) {
         console.error("Error fetching GitHub profile:", error);
       }

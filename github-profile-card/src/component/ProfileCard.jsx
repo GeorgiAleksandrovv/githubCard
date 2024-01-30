@@ -13,13 +13,13 @@ function ProfileCard({
       <img
         className="profile-pic"
         src={userData.avatar_url}
-        alt="Profile Picture"
+        alt={userData.login}
       />
       <h1 className="username">{userData.login}</h1>
       <h2 className="bio">{userData.bio}</h2>
+      <h2 className="normal-text">Random Quote: {randomQuote}</h2>
       <h2 className="normal-text">Number of Repositories: {repoCount}</h2>
       <h2 className="normal-text">Languages Used: {languages.join(", ")}</h2>
-      <h2 className="normal-text">Random Quote: {randomQuote}</h2>
 
       <div className="social-container">
         <div className="followers">
